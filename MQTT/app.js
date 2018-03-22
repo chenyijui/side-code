@@ -9,7 +9,6 @@ const path = require('path');
 //   clientId: 'javascript123333'
 
 var opt = {
-
   // key: KEY,
   // cert: CERT,
   // rejectUnauthorized: false,
