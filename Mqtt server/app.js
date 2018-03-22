@@ -7,8 +7,8 @@ const mongoUrl = "mongodb://localhost:27017/mqtt";
 // mongoose.Promise = global.Promise;
 // //Mongoose Configurations
 // mongoose.connect('mongodb://localhost:27017/mqtt-message');
-const SECURE_KEY = __dirname + '/ssl/tls-key.pem';
-const SECURE_CERT = __dirname + '/ssl/tls-cert.pem';
+// const SECURE_KEY = __dirname + '/ssl/tls-key.pem';
+// const SECURE_CERT = __dirname + '/ssl/tls-cert.pem';
 const moscaSettings = {
     // interfaces: [
     //     { type: "mqtt", port: 1883 },
@@ -21,10 +21,10 @@ const moscaSettings = {
     name: "secureExample",
     level: 40,
     },
-    secure : { 
-        keyPath: SECURE_KEY,
-        certPath: SECURE_CERT,
-    },
+    // secure : { 
+    //     keyPath: SECURE_KEY,
+    //     certPath: SECURE_CERT,
+    // },
     backend: {
         type: 'mongo',
         url: mongoUrl,
@@ -39,7 +39,7 @@ const moscaSettings = {
 const server = new mosca.Server(moscaSettings);
 
 var authenticate = function (client, username, password, callback) {
-    if (username == "test" && password.toString() == "test")
+    if (username == "test:123" && password.toString() == "test:456")
         callback(null, true);    
     else
         callback(null, false);

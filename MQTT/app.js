@@ -1,8 +1,8 @@
 const mqtt = require('mqtt');
 const fs = require('fs');
 const path = require('path');
-const KEY = fs.readFileSync('./ssl/tls-key.pem')
-const CERT = fs.readFileSync('./ssl/tls-cert.pem');
+// const KEY = fs.readFileSync('./ssl/tls-key.pem')
+// const CERT = fs.readFileSync('./ssl/tls-cert.pem');
 
 
 // var client = mqtt.connect('mqtt://try:try@broker.shiftr.io', {
@@ -10,14 +10,14 @@ const CERT = fs.readFileSync('./ssl/tls-cert.pem');
 
 var opt = {
 
-  key: KEY,
-  cert: CERT,
-  rejectUnauthorized: false,
+  // key: KEY,
+  // cert: CERT,
+  // rejectUnauthorized: false,
   clientId: "nodejs1111",
-  username: "test",
-  password: "test"
+  username: "test:123",
+  password: "test:456"
 };
-var client = mqtt.connect('mqtts://127.0.0.1:8883/', opt);
+var client = mqtt.connect('mqtt://127.0.0.1:8883/', opt);
 
 
 
